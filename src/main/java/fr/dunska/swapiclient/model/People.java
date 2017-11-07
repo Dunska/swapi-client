@@ -48,6 +48,15 @@ public class People implements Serializable {
 
     private String url;
 
+    public People()
+    {
+    }
+
+    public People(String name)
+    {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }

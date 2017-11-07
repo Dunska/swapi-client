@@ -16,8 +16,8 @@ public class Main {
 
         SwapiService service = initService();
 
-        final int starwWarsPeoples = service.countAllPeople();
-        System.out.println("Il y a "+starwWarsPeoples+"personnages dans Star Wars");
+        final List<People> people = service.peopleFromMovie("1");
+        System.out.println("Il y a "+people.size()+" personnages dans ce film");
     }
 
     private static SwapiService initService()

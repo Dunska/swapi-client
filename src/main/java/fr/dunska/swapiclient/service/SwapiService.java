@@ -5,6 +5,7 @@ import fr.dunska.swapiclient.model.ModelList;
 import fr.dunska.swapiclient.model.People;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SwapiService {
 
@@ -20,6 +21,13 @@ public class SwapiService {
 
     public int countAllPeople(){
         return api.peoples().count;
+    }
+
+    public List<People> peopleFromMovie(String id){
+        return api.film(id).charactersUrls.stream().map((url) -> {
+            String[] vals = url.split("/");
+            return api.people(vals[vals.length -1]);
+        }).collect(Collectors.toList());
     }
 
 
